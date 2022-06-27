@@ -1,5 +1,4 @@
 import { ChangeEvent, useState } from "react";
-import Logo from "../logo.svg";
 import { loginUser } from "../services/User";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -62,14 +61,8 @@ export function Login(props: Props) {
               <h4>Inicio de Sesión</h4>
             </div>
             <div className="card-body">
-              <img
-                src={Logo}
-                alt="alternative"
-                className="card-img-top mx-auto rounded-circle w-50 mb-3"
-              />
               <form onSubmit={handleSubmit}>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="email"
@@ -80,7 +73,6 @@ export function Login(props: Props) {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-lock me-2" />{" "}
                   <input
                     type="password"
                     name="password"

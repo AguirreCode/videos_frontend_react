@@ -60,7 +60,6 @@ export default function CreatePost() {
             <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="title"
@@ -70,7 +69,6 @@ export default function CreatePost() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="url"
                     name="url"
@@ -80,7 +78,6 @@ export default function CreatePost() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <textarea
                     name="description"
                     placeholder="Descripcion"

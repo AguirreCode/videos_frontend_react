@@ -20,8 +20,8 @@ export default function EditProfile() {
   }, []);
 
   const getUserBack = async () => {
-    const response = await getUser();
-    setUser(response);
+    const res = await getUser();
+    setUser(res.user);
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +69,6 @@ export default function EditProfile() {
             <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="name"
@@ -80,7 +79,6 @@ export default function EditProfile() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="first_lastname"
@@ -91,7 +89,6 @@ export default function EditProfile() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="second_lastname"
@@ -102,7 +99,6 @@ export default function EditProfile() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="email"

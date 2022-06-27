@@ -1,10 +1,11 @@
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { reseatPassword } from "../services/User";
+import { resetPassword } from "../services/User";
 import { toast } from "react-toastify";
+import { RecoveryPassword } from "../interfaces/User";
 
 export default function ReseatPassword() {
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<RecoveryPassword>({
     email: "",
   });
 
@@ -17,9 +18,10 @@ export default function ReseatPassword() {
 
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await reseatPassword(user.email);
+    const res = await resetPassword(user);
+    console.log(res);
     if (res.user) {
-      toast.success("Tu contraseña se cambio", {
+      toast.success(`Revisa tu correo`, {
         position: "top-right",
         autoClose: 2000,
         theme: "colored",
@@ -30,7 +32,7 @@ export default function ReseatPassword() {
         progress: undefined,
       });
     } else {
-      toast.error(`${res.error}`, {
+      toast.error(`${res.response.data.error}`, {
         position: "top-right",
         autoClose: 2000,
         theme: "colored",
@@ -55,7 +57,6 @@ export default function ReseatPassword() {
             <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="email"
                     name="email"
@@ -66,9 +67,7 @@ export default function ReseatPassword() {
                   />
                 </div>
                 <div className="form-group mb-3">
-                  <button className="btn btn-success btn-block">
-                    Aceptar
-                  </button>
+                  <button className="btn btn-success btn-block">Aceptar</button>
                 </div>
               </form>
             </div>

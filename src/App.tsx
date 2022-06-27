@@ -10,14 +10,15 @@ import Posts from "./components/Posts";
 import CreatePost from "./components/CreatePost";
 import { ToastContainer, Flip } from "react-toastify";
 import EditProfile from "./components/EditProfile";
-import ReseatPassword from "./components/ReseatPassword";
+import ReseatPassword from "./components/RecoverPassword";
 import ChangePassword from "./components/ChangePassword";
 
 export function App() {
   const [login, setLogin] = useState({ isLoggedIn: false });
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+    const token = localStorage.getItem("token");
+    if (token) {
       setLogin({ isLoggedIn: true });
     }
   }, []);

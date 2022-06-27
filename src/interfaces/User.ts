@@ -17,3 +17,7 @@ export interface Password {
   confirm_password: string;
 }
 
+export interface RecoveryPassword {
+  email: string;
+}
+

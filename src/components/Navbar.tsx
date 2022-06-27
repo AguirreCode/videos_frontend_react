@@ -16,22 +16,22 @@ class Navbar extends Component<Props> {
         <ul className="navbar-nav ms-auto">
           <li>
             <DropDown>
-              <DropDown.Toggle variant="dark" id="dropdown-basic">
+              <DropDown.Toggle className="pl-0" variant="dark" id="dropdown-basic">
                 Publicaciones
               </DropDown.Toggle>
-              <DropDown.Menu>
-                <DropDown.Item className="dropdown-item">
-                  <Link className="nav-link text-dark" to="/create-post">
+              <DropDown.Menu className="bg-dark">
+                <DropDown.Item className="dropdown-item bg-dark">
+                  <Link className="nav-link text-white" to="/create-post">
                     Create Post
                   </Link>
                 </DropDown.Item>
-                <DropDown.Item className="dropdown-item">
-                  <Link className="nav-link text-dark" to="/all-posts">
+                <DropDown.Item className="dropdown-item bg-dark">
+                  <Link className="nav-link text-white" to="/all-posts">
                     All Posts
                   </Link>
                 </DropDown.Item>
-                <DropDown.Item className="dropdown-item">
-                  <Link className="nav-link text-dark" to="/my-posts">
+                <DropDown.Item className="dropdown-item bg-dark">
+                  <Link className="nav-link text-white" to="/my-posts">
                     My Posts
                   </Link>
                 </DropDown.Item>

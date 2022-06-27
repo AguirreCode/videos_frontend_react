@@ -1,12 +1,21 @@
 import axios from "axios";
-import { userRegister, userLogin, Password } from "../interfaces/User";
+import {
+  userRegister,
+  userLogin,
+  Password,
+  RecoveryPassword,
+} from "../interfaces/User";
 
 const URL = "http://localhost:5000/auth";
 const token = localStorage.getItem("token");
 
 export const registerUser = async (user: userRegister) => {
-  const response = await axios.post(`${URL}/signup`, user);
-  return response.data;
+  try {
+    const response = await axios.post(`${URL}/signup`, user);
+    return response.data;
+  } catch (error) {
+    return error;
+  }
 };
 
 export const loginUser = async (user: userLogin) => {
@@ -21,23 +30,25 @@ export const loginUser = async (user: userLogin) => {
 };
 
 export const getUser = async () => {
-  const response = await fetch(`${URL}/user`, {
-    headers: {
-      "auth-token": `${token}`,
-    },
-  });
-  return await response.json();
+  try {
+    const response = await axios.get(`${URL}/user`, {
+      headers: {
+        "auth-token": `${localStorage.getItem("token")}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return error;
+  }
 };
 
-export const reseatPassword = async (email: string) => {
-  const response = await fetch(`${URL}/reseat-password`, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(email),
-  });
-  return await response.json();
+export const resetPassword = async (email: RecoveryPassword) => {
+  try {
+    const response = await axios.post(`${URL}/recover-password`, email);
+    return response.data;
+  } catch (error) {
+    return error;
+  }
 };
 
 export const changePassword = async (password: Password) => {
@@ -53,7 +64,6 @@ export const changePassword = async (password: Password) => {
 };
 
 export const editUser = async (user: userRegister) => {
-  console.log(user);
   const response = await fetch(`${URL}/edit-user`, {
     method: "PUT",
     headers: {

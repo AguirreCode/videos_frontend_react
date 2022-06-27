@@ -1,16 +1,21 @@
-import axios from "axios";
 import { IUPost } from "../interfaces/Post";
+import axios from "axios";
 
 const URL = "http://localhost:5000/post";
+const URL2 = "http://localhost:5000/auth";
 const token = localStorage.getItem("token");
 
 export const allPost = async () => {
-  const response = await axios.get(`${URL}/get/all`, {
-    headers: {
-      "auth-token": `${token}`,
-    },
-  });
-  return response.data;
+  try {
+    const response = await axios.get(`${URL}/get/all`, {
+      headers: {
+        "auth-token": `${localStorage.getItem("token")}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const createPost = async (post: IUPost) => {
@@ -18,7 +23,7 @@ export const createPost = async (post: IUPost) => {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "auth-token": `${token}`
+      "auth-token": `${token}`,
     },
     body: JSON.stringify(post),
   });

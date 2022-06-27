@@ -36,7 +36,6 @@ export default function Register() {
             <div className="card-body">
               <form onSubmit={handleSubmit}>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="name"
@@ -46,7 +45,6 @@ export default function Register() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="first_lastname"
@@ -56,7 +54,6 @@ export default function Register() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="second_lastname"
@@ -66,7 +63,6 @@ export default function Register() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-user me-2" />
                   <input
                     type="text"
                     name="email"
@@ -76,7 +72,6 @@ export default function Register() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-lock me-2" />{" "}
                   <input
                     type="password"
                     name="password"
@@ -86,7 +81,6 @@ export default function Register() {
                   />
                 </div>
                 <div className="form-group mb-3 d-flex align-items-center">
-                  <i className="fa-solid fa-lock me-2" />{" "}
                   <input
                     type="password"
                     name="confirm_password"
